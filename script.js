@@ -1,180 +1,63 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #f9e3e3;
-  font-family: 'Arial', sans-serif;
-  flex-direction: column;
+const messages = [
+    "Are you sure?",
+    "Really sure??",
+    "Are you positive?",
+    "Pookie please...",
+    "Just think about it!",
+    "If you say no, I will be really sad...",
+    "I will be very sad...",
+    "I will be very very very sad...",
+    "Ok fine, I will stop asking...",
+    "Just kidding, say yes please! ❤️"
+];
+
+let messageIndex = 0;
+
+function handleNoClick() {
+    const noButton = document.querySelector('.no-button');
+    const yesButton = document.querySelector('.yes-button1');
+    noButton.textContent = messages[messageIndex];
+    messageIndex = (messageIndex + 1) % messages.length;
+    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+    yesButton.style.fontSize = `${currentSize * 1.5}px`;
 }
 
-.container {
-  text-align: center;
+function handleYesClick() {
+    window.location.href = "yes_page.html";
 }
 
-h1 {
-  font-size: 2.5em;
-  color: #d32f2f;
+function handle1Click() {
+    window.location.href = "firstValentine.html";
 }
 
-.buttons {
-  margin-top: 20px;
+function handle2Click() {
+    window.location.href = "secondValentine.html";
 }
 
-.yes-button {
-  width: 20%;
-  font-size: 90%;
-  padding: 10px 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: auto;
-}
-.yes-button1 {
-  font-size: 90%;
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+function handle3Click() {
+    window.location.href = "thirdValentine.html";
 }
 
-.no-button {
-  font-size: 1.5em;
-  padding: 10px 20px;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+// Function to redirect to yes_page.html when 'Yes' button is clicked
+function nextPage() {
+    window.location.href = 'yes_page.html';
+}
+function nextPage1() {
+    window.location.href = 'yes.html';
 }
 
-.gif_container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #fff5f5;
-  font-family: 'Arial', sans-serif;;
-}
+// Function to make the 'No' button move to random positions with animations
+function moveButton() {
+    const button = document.getElementById('noButton');
+    const maxX = window.innerWidth - button.offsetWidth;
+    const maxY = window.innerHeight - button.offsetHeight;
 
-.container {
-  text-align: center;
-  background-color: #ffebee;
-  padding: 40px;
-  border-radius: 20px;
-  border: 3px solid #ff6b81;
-  box-shadow: 0 8px 20px rgba(255, 107, 129, 0.3);
-  max-width: 400px;
-  width: 100%;
-}
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
 
-.header_text {
-  font-size: 2.5em;
-  color: #ff6b81;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(255, 107, 129, 0.2);
-}
-
-.gif_container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.btn {
-  padding: 12px 24px;
-  font-size: 20px;
-  border: 2px solid #ff6b81;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background-color: #ff6b81;
-  color: white;
-  font-family: 'Indie Flower', cursive;
-  box-shadow: 0 4px 10px rgba(255, 107, 129, 0.3);
-}
-
-.btn:hover {
-  background-color: white;
-  color: #ff6b81;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(255, 107, 129, 0.4);
-}
-
-#noButton {
-  background-color: #ff4757;
-  border-color: #ff4757;
-}
-
-#noButton:hover {
-  background-color: white;
-  color: #ff4757;
-}
-
-@keyframes wiggle {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(-5deg); }
-  50% { transform: rotate(5deg); }
-  75% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.wiggle {
-  animation: wiggle 0.5s ease-in-out;
-}
-
-@keyframes heartFade {
-  0% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(1.5); }
-}
-
-.heart {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  transform: translate(-50%, -50%);
-  animation: heartFade 1s ease-out forwards;
-  background-color: #ff6b81;
-  border-radius: 50%;
-}
-
-@media only screen and (max-width: 500px) {
-  .container {
-      text-align: center;
-      background-color: #ffebee;
-      padding: 40px;
-      border-radius: 20px;
-      border: 3px solid #ff6b81;
-      box-shadow: 0 8px 20px rgba(255, 107, 129, 0.3);
-      width: 60%;
-    align-content: center;
-    position: fixed;
-  }
-  .header_text {
-    font-size: 2em;
-    color: #ff6b81;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(255, 107, 129, 0.2);
-  }
+    button.style.position = 'absolute';
+    button.style.transition = 'all 0.3s ease';
+    button.style.left = `${randomX}px`;
+    button.style.top = `${randomY}px`;
+    button.style.transform = `rotate(${Math.random() * 360}deg) scale(${0.8 + Math.random() * 0.4})`;
 }
